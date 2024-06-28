@@ -7,17 +7,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
+@Table(name = "rule")
 public class Rule {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    @Column(name = "calculate_category")
+    @Column(name = "rule_category")
     private String category;
-    @Column(name = "calculate_parity")
+    @Column(name = "rule_parity")
     private Integer parity;
 
     public Rule(String category, Integer parity) {
-        this.category = category;
+        this.category= category;
         this.parity = parity;
     }
 }
