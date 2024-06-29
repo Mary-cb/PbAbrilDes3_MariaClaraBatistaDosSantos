@@ -28,6 +28,7 @@ public class CustomerService {
         return customerRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     public Optional<Customer> getByID(String id){
         return customerRepository.findById(id);
     }

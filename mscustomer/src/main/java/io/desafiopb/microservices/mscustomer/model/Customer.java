@@ -2,13 +2,14 @@ package io.desafiopb.microservices.mscustomer.model;
 
 import io.desafiopb.microservices.mscustomer.enums.Gender;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.processing.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
@@ -20,12 +21,15 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     @Column(name = "customer_cpf")
+    @Size(min = 11, max = 11, message = "Cpf not valid.")
     private String cpf;
     @Column(name = "customer_name")
+    @Size(min = 3, message = "Your name must contain at least 3 characters")
     private String name;
     @Column(name = "customer_gender")
     private Gender gender;
     @Column(name = "customer_birthdate")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthdate;
     @Column(name = "customer_email")
     private String email;
