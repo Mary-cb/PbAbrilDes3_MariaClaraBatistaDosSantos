@@ -1,71 +1,40 @@
 package io.desafiopb.microservices.mscalculate.controller;
 
 import io.desafiopb.microservices.mscalculate.dto.CalculateRequest;
-import io.desafiopb.microservices.mscalculate.dto.RuleRequest;
+import io.desafiopb.microservices.mscalculate.dto.CalculateResponse;
 import io.desafiopb.microservices.mscalculate.model.Rule;
-import io.desafiopb.microservices.mscalculate.repository.RuleRepository;
 import io.desafiopb.microservices.mscalculate.service.RuleService;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
 
 @RestController
-@RequestMapping("/v1/rules")
-@Data
+@RequestMapping("/v1/calculate")
 @RequiredArgsConstructor
 public class CalculateController {
 
+
     private final RuleService ruleService;
-    private final RuleRepository ruleRepository;
 
     @PostMapping
-    public ResponseEntity<Map<String, Object>> saveRule(@RequestBody RuleRequest request) {
-        var rule = request.toRule();
-        ruleService.save(rule);
-        URI headerLocation = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .query("id={id}")
-                .buildAndExpand(rule.getId())
-                .toUri();
-
-        Map<String, Object> responseBody = new HashMap<>();
-        responseBody.put("id", rule.getId());
-
-        return ResponseEntity.created(headerLocation).body(responseBody);
-    }
-
-    @GetMapping(params = "id")
-    public ResponseEntity getRule(@RequestParam ("id") String id){
-        var rule = ruleService.getByID(id);
-        if(rule.isEmpty()){
-            return ResponseEntity.notFound().build();
+    public Object calculate(@RequestBody CalculateRequest request) {
+        if (request.getId() == null || request.getId().isEmpty()){
+            return request.getValue();
         }
-        return ResponseEntity.ok(rule);
-    }
 
-    @DeleteMapping(params = "id")
-    public ResponseEntity<Void> deleteRule(@RequestParam("id") String id) {
-        ruleService.deleteById(id);
-        return ResponseEntity.noContent().build();
-    }
+        Rule rule = ruleService.getRule(request.getId());
 
-    @PutMapping(params = "id")
-    public ResponseEntity<Rule> updateRule(@RequestParam("id") String id, @RequestBody RuleRequest request) {
-        var existingRule = ruleService.findById(id);
-        if (existingRule == null) {
-            return ResponseEntity.notFound().build();
+        if (rule == null) {
+            throw new RuntimeException("Rule not found for ruleID: " + request.getId());
         }
-        var updatedRule = request.toRule();
-        updatedRule.setId(id);
-        ruleService.save(updatedRule);
-        return ResponseEntity.ok(updatedRule);
-    }
 
+        BigDecimal parity = BigDecimal.valueOf(rule.getParity());
+        BigDecimal value = request.getValue();
+        BigDecimal total = parity.multiply(value);
+        return new CalculateResponse(total);
+    }
 }

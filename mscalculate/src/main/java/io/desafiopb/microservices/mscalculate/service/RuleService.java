@@ -6,8 +6,6 @@ import jakarta.transaction.Transactional;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +16,7 @@ public class RuleService {
 
     @Transactional
     public Rule save(Rule rule){
+        System.out.println("Saving rule: " + rule);
         return ruleRepository.save(rule);
     }
 
@@ -36,5 +35,9 @@ public class RuleService {
         return ruleRepository.findById(id);
     }
 
+    @Transactional
+    public Rule getRule(String id) {
+        return ruleRepository.findById(id).orElse(null);
+    }
 
 }
