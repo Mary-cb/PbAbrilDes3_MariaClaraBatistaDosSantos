@@ -12,9 +12,9 @@ public class Rule {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    @Column(name = "rule_category")
+    @Column(name = "category")
     private String category;
-    @Column(name = "rule_parity")
+    @Column(name = "parity")
     private Integer parity;
 
     public Rule(String category, Integer parity) {

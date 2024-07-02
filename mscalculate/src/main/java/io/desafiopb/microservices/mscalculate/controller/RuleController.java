@@ -51,7 +51,7 @@ public class RuleController {
     @DeleteMapping(params = "id")
     public ResponseEntity<Void> deleteRule(@RequestParam("id") String id) {
         ruleService.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.accepted().build();
     }
 
     @PutMapping(params = "id")
