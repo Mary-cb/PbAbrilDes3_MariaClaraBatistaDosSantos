@@ -46,7 +46,7 @@ public class CustomerController {
     @DeleteMapping(params = "id")
     public ResponseEntity<Void> deleteCustomer(@RequestParam("id") String id) {
         customerService.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.accepted().build();
     }
 
     @PutMapping(params = "id")

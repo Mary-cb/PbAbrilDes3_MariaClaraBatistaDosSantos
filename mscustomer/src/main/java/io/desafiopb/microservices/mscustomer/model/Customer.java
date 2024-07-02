@@ -10,32 +10,36 @@ import org.hibernate.annotations.processing.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "customer")
 @Data
 @NoArgsConstructor
-public class Customer {
+public class Customer implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    @Column(name = "customer_cpf")
+    @Column(name = "cpf", nullable = false)
     @Size(min = 11, max = 11, message = "Cpf not valid.")
     private String cpf;
-    @Column(name = "customer_name")
+    @Column(name = "name", nullable = false)
     @Size(min = 3, message = "Your name must contain at least 3 characters")
     private String name;
-    @Column(name = "customer_gender")
+    @Column(name = "gender")
+    @Enumerated(EnumType.STRING)
     private Gender gender;
-    @Column(name = "customer_birthdate")
+    @Column(name = "birthdate")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthdate;
-    @Column(name = "customer_email")
+    @Column(name = "email", nullable = false)
     private String email;
-    @Column(name = "customer_points")
+    @Column(name = "points")
     private Integer points = 0;
-    @Column(name = "customer_photo")
+    @Column(name = "photo")
     private String photo;
 
     public Customer(String cpf, String name, Gender gender, LocalDate birthdate, String email, String photo) {
