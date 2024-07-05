@@ -17,6 +17,7 @@ public class Rule {
     @Column(name = "parity")
     private Integer parity;
 
+
     public Rule(String category, Integer parity) {
         this.category= category;
         this.parity = parity;

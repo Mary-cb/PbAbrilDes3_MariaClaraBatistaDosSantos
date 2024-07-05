@@ -13,8 +13,9 @@ import java.math.BigDecimal;
 public class CalculateRequest {
     private String id;
     private BigDecimal value;
+    private String customerId;
 
     public CalculateRequest toCalculate(){
-        return new CalculateRequest(id, value);
+        return new CalculateRequest(id, value, customerId);
     }
 }
