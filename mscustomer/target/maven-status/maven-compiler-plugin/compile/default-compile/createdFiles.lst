@@ -1,0 +1,9 @@
+uol\compass\desafiopb\mscustomer\enums\Gender.class
+uol\compass\desafiopb\mscustomer\service\CustomerService.class
+uol\compass\desafiopb\mscustomer\controller\CustomerController.class
+uol\compass\desafiopb\mscustomer\MscustomerApplication.class
+uol\compass\desafiopb\mscustomer\repository\CustomerRepository.class
+uol\compass\desafiopb\mscustomer\model\Customer.class
+uol\compass\desafiopb\mscustomer\mqueue\PointsSubscriber.class
+uol\compass\desafiopb\mscustomer\dto\CustomerSaveRequest.class
+uol\compass\desafiopb\mscustomer\dto\SendPointsRequest.class
