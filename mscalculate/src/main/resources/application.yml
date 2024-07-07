@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mscalculate
-    username: root
-    password: 1234
+    url: jdbc:mysql://mscalculate.chu0ky8wghd2.us-east-2.rds.amazonaws.com:3306/mscalculate
+    username: docker
+    password: admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
