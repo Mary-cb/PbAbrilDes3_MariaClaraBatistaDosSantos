@@ -2,6 +2,7 @@ package uol.compass.desafiopb.mscustomer.controller;
 
 import jakarta.validation.Valid;
 import uol.compass.desafiopb.mscustomer.dto.CustomerSaveRequest;
+import uol.compass.desafiopb.mscustomer.exception.ResourceNotFoundException;
 import uol.compass.desafiopb.mscustomer.model.Customer;
 import uol.compass.desafiopb.mscustomer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    public ResponseEntity<Map<String, Object>> saveCustomer(@Valid @RequestBody CustomerSaveRequest request) throws Exception {
+    public ResponseEntity<Map<String, Object>> saveCustomer(@Valid @RequestBody CustomerSaveRequest request) throws ResourceNotFoundException {
         var customer = request.toCustomer();
         customerService.save(customer);
         URI headerLocation = ServletUriComponentsBuilder
@@ -39,7 +40,7 @@ public class CustomerController {
     public ResponseEntity getCustomer(@RequestParam ("id") String id){
         var customer = customerService.getByID(id);
         if(customer.isEmpty()){
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Customer not found with ID: " + id);
         }
         return ResponseEntity.ok(customer);
     }
@@ -54,7 +55,7 @@ public class CustomerController {
     public ResponseEntity<Customer> updateCustomer(@Valid @RequestParam("id") String id, @RequestBody CustomerSaveRequest request) throws Exception {
         var existingCustomer = customerService.findById(id);
         if (existingCustomer == null) {
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Customer not found with ID: " + id);
         }
 
         var updatedCustomer = request.toCustomer();
@@ -62,9 +63,5 @@ public class CustomerController {
         customerService.save(updatedCustomer);
         return ResponseEntity.ok(updatedCustomer);
     }
-
-    @GetMapping
-    private String status(){
-        return "ok";
-    }
+    
 }
