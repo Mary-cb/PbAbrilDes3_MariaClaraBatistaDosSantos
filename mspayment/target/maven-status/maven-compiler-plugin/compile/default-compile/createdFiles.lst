@@ -1,0 +1,11 @@
+uol\compass\desafiopb\mspayment\MspaymentApplication.class
+uol\compass\desafiopb\mspayment\client\CustomerResourceClient.class
+uol\compass\desafiopb\mspayment\model\Customer.class
+uol\compass\desafiopb\mspayment\model\Rule.class
+uol\compass\desafiopb\mspayment\repository\PaymentRepository.class
+uol\compass\desafiopb\mspayment\client\RuleResourceClient.class
+uol\compass\desafiopb\mspayment\controller\PaymentController.class
+uol\compass\desafiopb\mspayment\dto\PaymentRequest.class
+uol\compass\desafiopb\mspayment\dto\PaymentResponse.class
+uol\compass\desafiopb\mspayment\model\Payment.class
+uol\compass\desafiopb\mspayment\service\PaymentService.class
