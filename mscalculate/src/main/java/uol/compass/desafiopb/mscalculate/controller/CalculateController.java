@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import uol.compass.desafiopb.mscalculate.dto.CalculateRequest;
 import uol.compass.desafiopb.mscalculate.dto.CalculateResponse;
 import uol.compass.desafiopb.mscalculate.dto.SendPointsRequest;
+import uol.compass.desafiopb.mscalculate.exception.InvalidRequestException;
+import uol.compass.desafiopb.mscalculate.exception.ResourceNotFoundException;
 import uol.compass.desafiopb.mscalculate.model.Rule;
 import uol.compass.desafiopb.mscalculate.mqueue.PointsPublisher;
 import uol.compass.desafiopb.mscalculate.service.CalculateService;
@@ -31,13 +33,13 @@ public class CalculateController {
             return new CalculateResponse(request.getValue());
         }
         if (request.getCustomerId() == null || request.getCustomerId().isEmpty()) {
-            throw new RuntimeException("CustomerId cannot be null or empty.");
+            throw new InvalidRequestException("Customer ID can not be null or empty.");
         }
 
         Rule rule = ruleService.getRule(request.getId());
 
         if (rule == null) {
-            throw new RuntimeException("Rule not found for ruleID: " + request.getId());
+            throw new ResourceNotFoundException("Rule not found for ruleID: " + request.getId());
         }
 
         BigDecimal parity = BigDecimal.valueOf(rule.getParity());

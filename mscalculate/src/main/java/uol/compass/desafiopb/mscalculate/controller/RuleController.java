@@ -1,6 +1,7 @@
 package uol.compass.desafiopb.mscalculate.controller;
 
 import uol.compass.desafiopb.mscalculate.dto.RuleRequest;
+import uol.compass.desafiopb.mscalculate.exception.ResourceNotFoundException;
 import uol.compass.desafiopb.mscalculate.model.Rule;
 import uol.compass.desafiopb.mscalculate.repository.RuleRepository;
 import uol.compass.desafiopb.mscalculate.service.RuleService;
@@ -43,7 +44,7 @@ public class RuleController {
     public ResponseEntity getRule(@RequestParam ("id") String id){
         var rule = ruleService.getByID(id);
         if(rule.isEmpty()){
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Rule not found with ID: " + id);
         }
         return ResponseEntity.ok(rule);
     }
@@ -58,7 +59,7 @@ public class RuleController {
     public ResponseEntity<Rule> updateRule(@RequestParam("id") String id, @RequestBody RuleRequest request) {
         var existingRule = ruleService.findById(id);
         if (existingRule == null) {
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Rule not found with ID: " + id);
         }
         var updatedRule = request.toRule();
         updatedRule.setId(id);
