@@ -1,5 +1,6 @@
 package uol.compass.desafiopb.mscustomer.controller;
 
+import jakarta.validation.Valid;
 import uol.compass.desafiopb.mscustomer.dto.CustomerSaveRequest;
 import uol.compass.desafiopb.mscustomer.model.Customer;
 import uol.compass.desafiopb.mscustomer.service.CustomerService;
@@ -19,7 +20,7 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    public ResponseEntity<Map<String, Object>> saveCustomer(@RequestBody CustomerSaveRequest request) {
+    public ResponseEntity<Map<String, Object>> saveCustomer(@Valid @RequestBody CustomerSaveRequest request) throws Exception {
         var customer = request.toCustomer();
         customerService.save(customer);
         URI headerLocation = ServletUriComponentsBuilder
@@ -50,7 +51,7 @@ public class CustomerController {
     }
 
     @PutMapping(params = "id")
-    public ResponseEntity<Customer> updateCustomer(@RequestParam("id") String id, @RequestBody CustomerSaveRequest request) {
+    public ResponseEntity<Customer> updateCustomer(@Valid @RequestParam("id") String id, @RequestBody CustomerSaveRequest request) throws Exception {
         var existingCustomer = customerService.findById(id);
         if (existingCustomer == null) {
             return ResponseEntity.notFound().build();

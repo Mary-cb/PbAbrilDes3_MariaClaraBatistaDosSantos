@@ -5,5 +5,7 @@ uol\compass\desafiopb\mscustomer\MscustomerApplication.class
 uol\compass\desafiopb\mscustomer\repository\CustomerRepository.class
 uol\compass\desafiopb\mscustomer\model\Customer.class
 uol\compass\desafiopb\mscustomer\mqueue\PointsSubscriber.class
+uol\compass\desafiopb\mscustomer\validation\GenderValidator.class
 uol\compass\desafiopb\mscustomer\dto\CustomerSaveRequest.class
 uol\compass\desafiopb\mscustomer\dto\SendPointsRequest.class
+uol\compass\desafiopb\mscustomer\validation\GenderValidation.class
