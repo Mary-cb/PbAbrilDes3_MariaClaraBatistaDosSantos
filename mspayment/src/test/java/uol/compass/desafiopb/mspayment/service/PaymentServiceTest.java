@@ -8,16 +8,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import uol.compass.desafiopb.mspayment.exception.InvalidRequestException;
 import uol.compass.desafiopb.mspayment.model.Payment;
 import uol.compass.desafiopb.mspayment.repository.PaymentRepository;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 import static uol.compass.desafiopb.mspayment.constant.PaymentConstant.INVALID_PAYMENT;
 import static uol.compass.desafiopb.mspayment.constant.PaymentConstant.PAYMENT;
@@ -45,7 +41,6 @@ public class PaymentServiceTest {
         when(paymentRepository.save(INVALID_PAYMENT)).thenThrow(InvalidRequestException.class);
 
         assertThatThrownBy(() -> paymentService.save(INVALID_PAYMENT)).isInstanceOf(InvalidRequestException.class);
-
     }
 
     @Test
@@ -87,6 +82,4 @@ public class PaymentServiceTest {
 
         assertThat(sut).isEmpty();
     }
-
-
 }

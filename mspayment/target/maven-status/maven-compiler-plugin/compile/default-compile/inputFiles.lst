@@ -3,6 +3,9 @@ C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\
 C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\controller\PaymentController.java
 C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\dto\PaymentRequest.java
 C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\dto\PaymentResponse.java
+C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\exception\GlobalExceptionHandler.java
+C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\exception\InvalidRequestException.java
+C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\exception\ResourceNotFoundException.java
 C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\model\Customer.java
 C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\model\Payment.java
 C:\Users\mcbs\OneDrive\Documentos\mspayment\src\main\java\uol\compass\desafiopb\mspayment\model\Rule.java

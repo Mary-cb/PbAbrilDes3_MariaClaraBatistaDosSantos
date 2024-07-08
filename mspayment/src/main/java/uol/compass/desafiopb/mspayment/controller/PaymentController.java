@@ -5,6 +5,7 @@ import uol.compass.desafiopb.mspayment.client.CustomerResourceClient;
 import uol.compass.desafiopb.mspayment.client.RuleResourceClient;
 import uol.compass.desafiopb.mspayment.dto.PaymentRequest;
 import uol.compass.desafiopb.mspayment.dto.PaymentResponse;
+import uol.compass.desafiopb.mspayment.exception.ResourceNotFoundException;
 import uol.compass.desafiopb.mspayment.model.Payment;
 import uol.compass.desafiopb.mspayment.service.PaymentService;
 import lombok.Data;
@@ -12,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
@@ -33,14 +33,12 @@ public class PaymentController {
     public ResponseEntity<Map<String, Object>> savePayment(@RequestBody PaymentRequest request) {
         ResponseEntity customerResponse = customerClient.getCustomer(request.getCustomerId());
         if (customerResponse.getStatusCode() != HttpStatus.OK){
-            throw new RuntimeException("Customer not found with ID: " + request.getCustomerId());
+            throw new ResourceNotFoundException("Customer not found with ID: " + request.getCustomerId());
         }
-
         ResponseEntity ruleResponse = ruleClient.getRule(request.getRuleId());
         if (ruleResponse.getStatusCode() != HttpStatus.OK){
-            throw new RuntimeException("Rule not found with ID: " + request.getRuleId());
+            throw new ResourceNotFoundException("Rule not found with ID: " + request.getRuleId());
         }
-
         var payment = request.toPayment();
         paymentService.save(payment);
         URI headerLocation = ServletUriComponentsBuilder
@@ -56,12 +54,11 @@ public class PaymentController {
         return ResponseEntity.created(headerLocation).body(responseBody);
     }
 
-
     @GetMapping(params = "id")
     public ResponseEntity getPayment(@RequestParam ("id") String id){
         var payment = paymentService.getByID(id);
         if(payment.isEmpty()){
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Payment with ID " + id + "not found");
         }
         return ResponseEntity.ok(payment);
     }

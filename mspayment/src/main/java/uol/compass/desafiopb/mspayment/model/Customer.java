@@ -9,6 +9,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Customer {
-    private String customerId;
-}
+public class Customer {private String customerId;}

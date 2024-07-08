@@ -9,6 +9,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Rule {
-    private String ruleId;
-}
+public class Rule {private String ruleId;}

@@ -2,7 +2,6 @@ package uol.compass.desafiopb.mspayment.dto;
 
 import uol.compass.desafiopb.mspayment.model.Payment;
 import lombok.Data;
-
 import java.math.BigDecimal;
 
 @Data

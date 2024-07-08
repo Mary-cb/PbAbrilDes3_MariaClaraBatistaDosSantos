@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import uol.compass.desafiopb.mspayment.model.Payment;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -22,7 +21,6 @@ public class PaymentResponse {
                 model.getCustomerId(),
                 model.getRuleId(),
                 model.getTotal(),
-                model.getCreatedDate()
-        );
+                model.getCreatedDate());
     }
 }
