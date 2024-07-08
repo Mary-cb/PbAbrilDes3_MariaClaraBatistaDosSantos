@@ -2,6 +2,7 @@ package uol.compass.desafiopb.mscustomer.model;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import org.apache.commons.lang.builder.EqualsBuilder;
 import uol.compass.desafiopb.mscustomer.enums.Gender;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -11,6 +12,7 @@ import uol.compass.desafiopb.mscustomer.validation.GenderValidation;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 @Entity
@@ -56,9 +58,14 @@ public class Customer{
         this.cpf = cpf;
         this.name = name;
         this.gender = gender;
-        this.birthdate = birthdate;
+        this.birthdate = LocalDate.parse(birthdate.format(DateTimeFormatter.ISO_LOCAL_DATE));
         this.email = email;
         this.photo = photo;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+       return EqualsBuilder.reflectionEquals(obj, this);
     }
 
 

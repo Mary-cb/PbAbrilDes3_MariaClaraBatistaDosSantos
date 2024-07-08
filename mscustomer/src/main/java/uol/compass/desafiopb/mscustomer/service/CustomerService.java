@@ -33,4 +33,7 @@ public class CustomerService {
         return customerRepository.findById(id);
     }
 
+    @Transactional
+    public Customer update(Customer customer) { return customerRepository.save(customer);}
+
 }
