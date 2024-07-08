@@ -1,6 +1,5 @@
 package uol.compass.desafiopb.mscustomer.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -43,7 +42,4 @@ public class CustomerSaveRequest {
     @NotBlank
     private String photo;
 
-    public Customer toCustomer() {
-        return new Customer(cpf, name, gender, birthdate, email, photo);
-    }
-}
+    public Customer toCustomer() {return new Customer(cpf, name, gender, birthdate, email, photo);}}

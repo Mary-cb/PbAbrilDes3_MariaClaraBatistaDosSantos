@@ -9,6 +9,5 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableRabbit
 @EnableFeignClients
 public class MscustomerApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(MscustomerApplication.class, args);}}

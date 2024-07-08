@@ -2,6 +2,9 @@ C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb
 C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\dto\CustomerSaveRequest.java
 C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\dto\SendPointsRequest.java
 C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\enums\Gender.java
+C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\exception\GlobalExceptionHandler.java
+C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\exception\InvalidRequestException.java
+C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\exception\ResourceNotFoundException.java
 C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\model\Customer.java
 C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\mqueue\PointsSubscriber.java
 C:\Users\mcbs\OneDrive\Documentos\mscustomer\src\main\java\uol\compass\desafiopb\mscustomer\MscustomerApplication.java

@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +56,6 @@ public class CustomerController {
         if (existingCustomer == null) {
             throw new ResourceNotFoundException("Customer not found with ID: " + id);
         }
-
         var updatedCustomer = request.toCustomer();
         updatedCustomer.setId(id);
         customerService.save(updatedCustomer);

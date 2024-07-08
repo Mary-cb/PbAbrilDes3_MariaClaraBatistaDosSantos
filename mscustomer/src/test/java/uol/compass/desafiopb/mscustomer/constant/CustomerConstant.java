@@ -2,7 +2,6 @@ package uol.compass.desafiopb.mscustomer.constant;
 
 import uol.compass.desafiopb.mscustomer.enums.Gender;
 import uol.compass.desafiopb.mscustomer.model.Customer;
-
 import java.time.LocalDate;
 
 public class CustomerConstant {

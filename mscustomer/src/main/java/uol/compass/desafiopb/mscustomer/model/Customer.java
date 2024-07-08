@@ -14,7 +14,6 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
 @Entity
 @Table(name = "customer")
 @Data
@@ -64,9 +63,5 @@ public class Customer{
     }
 
     @Override
-    public boolean equals(Object obj){
-       return EqualsBuilder.reflectionEquals(obj, this);
-    }
-
-
+    public boolean equals(Object obj){return EqualsBuilder.reflectionEquals(obj, this);}
 }

@@ -9,9 +9,7 @@ import uol.compass.desafiopb.mscustomer.exception.InvalidRequestException;
 import uol.compass.desafiopb.mscustomer.exception.ResourceNotFoundException;
 import uol.compass.desafiopb.mscustomer.model.Customer;
 import uol.compass.desafiopb.mscustomer.repository.CustomerRepository;
-
 import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
@@ -37,7 +35,6 @@ public class CustomerServiceTest {
 
        assertThat(sut).isEqualTo(CUSTOMER);
     }
-
     @Test
     public void saveCustomerWithInvalidData(){
         when(customerRepository.save(INVALID_CUSTOMER)).thenThrow(InvalidRequestException.class);
@@ -45,7 +42,6 @@ public class CustomerServiceTest {
         assertThatThrownBy(() -> customerService.save(INVALID_CUSTOMER)).isInstanceOf(InvalidRequestException.class);
 
     }
-
     @Test
     public void getCustomerWithExistingId(){
         when(customerRepository.findById("1")).thenReturn(Optional.of(CUSTOMER));
@@ -55,7 +51,6 @@ public class CustomerServiceTest {
         assertThat(sut).isNotEmpty();
         assertThat(sut.get()).isEqualTo(CUSTOMER);
     }
-
     @Test
     public void getCustomerWithUnexistingId(){
         when(customerRepository.findById("1")).thenReturn(Optional.empty());
@@ -64,19 +59,16 @@ public class CustomerServiceTest {
 
         assertThat(sut).isEmpty();
     }
-
     @Test
     public void deleteRuleWithExistingId(){
         assertThatCode(() -> customerService.deleteById("1")).doesNotThrowAnyException();
     }
-
     @Test
     public void deleteRuleWithUnexistingId() {
         doThrow(new ResourceNotFoundException("")).when(customerRepository).deleteById("99");
 
         assertThatThrownBy(() -> customerService.deleteById("99")).isInstanceOf(ResourceNotFoundException.class);
     }
-
     @Test
     public void updateRuleWithValidData() {
 
@@ -86,12 +78,10 @@ public class CustomerServiceTest {
 
         assertThat(updatedCustomer).isEqualTo(CUSTOMER);
     }
-
     @Test
     public void updateRuleWithInvalidData() {
         when(customerRepository.save(INVALID_CUSTOMER)).thenThrow(InvalidRequestException.class);
 
         assertThatThrownBy(() -> customerService.update(INVALID_CUSTOMER)).isInstanceOf(InvalidRequestException.class);
     }
-
 }

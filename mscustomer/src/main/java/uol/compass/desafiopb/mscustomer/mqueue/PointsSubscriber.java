@@ -13,7 +13,6 @@ import uol.compass.desafiopb.mscustomer.service.CustomerService;
 @Component
 @RequiredArgsConstructor
 public class PointsSubscriber {
-
     private final CustomerService customerService;
 
     @RabbitListener(queues = "${mq.queues.points}")
@@ -27,14 +26,14 @@ public class PointsSubscriber {
             if (customer != null) {
                 customer.setPoints(request.getPoints());
                 customerService.save(customer);
-                System.out.println("Pontos atribuídos com sucesso para o cliente com ID " + customer.getId());
+                System.out.println("Points awarded to customer with ID: " + customer.getId());
             } else {
-                System.out.println("Cliente com ID " + request.getId() + " não encontrado.");
+                System.out.println("Client with ID " + request.getId() + " not found.");
             }
         } catch (JsonProcessingException e) {
-            System.err.println("Erro ao processar mensagem JSON: " + e.getMessage());
+            System.err.println("JSON processing error: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("Erro ao processar a mensagem: " + e.getMessage());
+            System.err.println("Message processing error: " + e.getMessage());
         }
     }
 }
