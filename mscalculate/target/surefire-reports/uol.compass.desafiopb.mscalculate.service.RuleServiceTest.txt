@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: uol.compass.desafiopb.mscalculate.service.RuleServiceTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.732 s -- in uol.compass.desafiopb.mscalculate.service.RuleServiceTest
