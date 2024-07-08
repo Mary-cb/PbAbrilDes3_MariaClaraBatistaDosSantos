@@ -41,4 +41,7 @@ public class RuleService {
         return ruleRepository.findById(id).orElse(null);
     }
 
+    @Transactional
+    public Rule update(Rule rule) { return ruleRepository.save(rule);}
+
 }

@@ -1,5 +1,6 @@
 package uol.compass.desafiopb.mscalculate.controller;
 
+import jakarta.validation.Valid;
 import uol.compass.desafiopb.mscalculate.dto.RuleRequest;
 import uol.compass.desafiopb.mscalculate.exception.ResourceNotFoundException;
 import uol.compass.desafiopb.mscalculate.model.Rule;
@@ -25,7 +26,7 @@ public class RuleController {
     private final RuleRepository ruleRepository;
 
     @PostMapping
-    public ResponseEntity<Map<String, Object>> saveRule(@RequestBody RuleRequest request) {
+    public ResponseEntity<Map<String, Object>> saveRule(@Valid @RequestBody RuleRequest request) {
         var rule = request.toRule();
         ruleService.save(rule);
         URI headerLocation = ServletUriComponentsBuilder
@@ -52,7 +53,7 @@ public class RuleController {
     @DeleteMapping(params = "id")
     public ResponseEntity<Void> deleteRule(@RequestParam("id") String id) {
         ruleService.deleteById(id);
-        return ResponseEntity.accepted().build();
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping(params = "id")
