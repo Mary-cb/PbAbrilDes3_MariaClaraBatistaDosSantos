@@ -6,9 +6,13 @@ C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiop
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\dto\ProtocolPointsRequest.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\dto\RuleRequest.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\dto\SendPointsRequest.java
+C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\exception\GlobalExceptionHandler.java
+C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\exception\InvalidRequestException.java
+C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\exception\ResourceNotFoundException.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\model\Rule.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\mqueue\PointsPublisher.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\MscalculateApplication.java
+C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\package-info.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\repository\RuleRepository.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\service\CalculateService.java
 C:\Users\mcbs\OneDrive\Documentos\mscalculate\src\main\java\uol\compass\desafiopb\mscalculate\service\RuleService.java

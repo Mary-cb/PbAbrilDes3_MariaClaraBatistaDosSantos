@@ -9,6 +9,5 @@ public class RuleRequest {
     private Integer parity;
 
     public Rule toRule(){
-        return new Rule(category, parity);
-    }
+        return new Rule(category, parity);}
 }

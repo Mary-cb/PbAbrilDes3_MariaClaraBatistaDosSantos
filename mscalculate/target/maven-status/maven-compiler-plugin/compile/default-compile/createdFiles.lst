@@ -3,6 +3,7 @@ uol\compass\desafiopb\mscalculate\dto\SendPointsRequest.class
 uol\compass\desafiopb\mscalculate\service\CalculateService.class
 uol\compass\desafiopb\mscalculate\controller\CalculateController.class
 uol\compass\desafiopb\mscalculate\dto\CalculateResponse.class
+uol\compass\desafiopb\mscalculate\exception\InvalidRequestException.class
 uol\compass\desafiopb\mscalculate\controller\RuleController.class
 uol\compass\desafiopb\mscalculate\model\Rule.class
 uol\compass\desafiopb\mscalculate\dto\RuleRequest.class
@@ -10,5 +11,8 @@ uol\compass\desafiopb\mscalculate\config\MQConfig.class
 uol\compass\desafiopb\mscalculate\repository\RuleRepository.class
 uol\compass\desafiopb\mscalculate\service\RuleService.class
 uol\compass\desafiopb\mscalculate\MscalculateApplication.class
+uol\compass\desafiopb\mscalculate\exception\ResourceNotFoundException.class
+uol\compass\desafiopb\mscalculate\exception\GlobalExceptionHandler.class
 uol\compass\desafiopb\mscalculate\dto\ProtocolPointsRequest.class
+uol\compass\desafiopb\mscalculate\package-info.class
 uol\compass\desafiopb\mscalculate\mqueue\PointsPublisher.class

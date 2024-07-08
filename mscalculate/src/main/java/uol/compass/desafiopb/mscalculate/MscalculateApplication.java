@@ -7,9 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @EnableRabbit
 public class MscalculateApplication {
-
 	public static void main(String[] args) {
-		SpringApplication.run(MscalculateApplication.class, args);
-	}
-
+		SpringApplication.run(MscalculateApplication.class, args);}
 }

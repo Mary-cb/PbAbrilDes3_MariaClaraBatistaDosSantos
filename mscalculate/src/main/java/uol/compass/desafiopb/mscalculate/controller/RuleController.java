@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +36,6 @@ public class RuleController {
 
         Map<String, Object> responseBody = new HashMap<>();
         responseBody.put("id", rule.getId());
-
         return ResponseEntity.created(headerLocation).body(responseBody);
     }
 

@@ -5,6 +5,4 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ProtocolPointsRequest {
-    private String protocol;
-}
+public class ProtocolPointsRequest {private String protocol;}

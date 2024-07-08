@@ -1,10 +1,8 @@
 package uol.compass.desafiopb.mscalculate.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 
 @Data
@@ -16,6 +14,5 @@ public class CalculateRequest {
     private String customerId;
 
     public CalculateRequest toCalculate(){
-        return new CalculateRequest(id, value, customerId);
-    }
+        return new CalculateRequest(id, value, customerId);}
 }

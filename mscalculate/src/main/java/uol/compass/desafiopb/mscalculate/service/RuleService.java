@@ -6,7 +6,6 @@ import jakarta.transaction.Transactional;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -43,5 +42,4 @@ public class RuleService {
 
     @Transactional
     public Rule update(Rule rule) { return ruleRepository.save(rule);}
-
 }

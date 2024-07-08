@@ -9,9 +9,7 @@ import uol.compass.desafiopb.mscalculate.exception.InvalidRequestException;
 import uol.compass.desafiopb.mscalculate.exception.ResourceNotFoundException;
 import uol.compass.desafiopb.mscalculate.model.Rule;
 import uol.compass.desafiopb.mscalculate.repository.RuleRepository;
-
 import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
@@ -43,7 +41,6 @@ public class RuleServiceTest {
         when(ruleRepository.save(INVALID_RULE)).thenThrow(InvalidRequestException.class);
 
         assertThatThrownBy(() -> ruleService.save(INVALID_RULE)).isInstanceOf(InvalidRequestException.class);
-
     }
 
     @Test
@@ -79,7 +76,6 @@ public class RuleServiceTest {
 
     @Test
     public void updateRuleWithValidData() {
-
         when(ruleRepository.save(RULE)).thenReturn(RULE);
 
         Rule updatedRule = ruleService.update(RULE);
@@ -93,5 +89,4 @@ public class RuleServiceTest {
 
         assertThatThrownBy(() -> ruleService.update(INVALID_RULE)).isInstanceOf(InvalidRequestException.class);
     }
-
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import uol.compass.desafiopb.mscalculate.dto.ProtocolPointsRequest;
 import uol.compass.desafiopb.mscalculate.dto.SendPointsRequest;
 import uol.compass.desafiopb.mscalculate.mqueue.PointsPublisher;
-
 import java.util.UUID;
 
 @Data
